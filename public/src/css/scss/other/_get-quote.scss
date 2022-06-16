@@ -1,0 +1,43 @@
+.get-quote {
+    @include button-reset;
+    background: url(#{$img}/get-quote.svg) no-repeat center / 100% 100%;
+    font-size: 20px;
+    color: $cRed;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    height: 48px;
+    width: 150px;
+    transition: .2s $easing color,
+                .1s $easing transform;
+    @include desktop {
+        height: 56px;
+        width: 174px;
+    }
+
+    &:hover {
+        color: $bg_color;
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(.9);
+    }
+
+    &_filled-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(#{$img}/get-quote-filled.svg) no-repeat center / 100% 100%;
+        opacity: 0;
+        transition: .2s $easing opacity;
+
+        .get-quote:hover & {
+            opacity: 1;
+        }
+    }
+    &_text {
+        position: relative;
+    }
+}

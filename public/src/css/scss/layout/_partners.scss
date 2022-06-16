@@ -1,0 +1,125 @@
+.partners {
+    margin: 0 0 88px;
+    @include tablet {
+        margin-bottom: 78px;
+    }
+    @include desktop {
+        margin-bottom: 170px;
+        overflow: hidden;
+    }
+    @include desktop-large {
+        margin-bottom: 180px;
+    }
+
+    &_title {
+        font-size: 18px;
+        margin: 0 0 30px;
+        text-align: center;
+        @include tablet {
+            margin-bottom: 42px;
+            padding-left: 85px;
+        }
+        @include desktop {
+            font-size: 32px;
+            text-align: right;
+            padding-left: 0;
+            text-align: left;
+            position: relative;
+            left: 47.4%;
+        }
+        @include desktop-large {
+            margin-bottom: 50px;
+            left: 43.5%;
+        }
+    }
+
+    &_row {
+        padding: 26px 0;
+        overflow: hidden;
+        display: flex;
+        position: relative;
+        @include desktop {
+            padding: 40px 0;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            border-top: 2px solid $cRed;
+            position: absolute;
+            left: 0;
+            right: 0;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: .8s $easeInOutCirc transform;
+        }
+        &::before {
+            top: 0;
+            content: none;
+        }
+        &:first-of-type::before {
+            content: '';
+        }
+        &::after {
+            bottom: 0;
+        }
+
+        &.animated::before,
+        &.animated::after {
+            transform: scaleX(1);
+        }
+    }
+    &_carousel {
+        animation: row-slide 25s linear infinite;
+        display: flex;
+        align-items: center;
+
+        &__duplicate {
+            animation-name: row-slide-duplicate;
+        }
+
+        .partners_row:nth-of-type(2) & {
+            animation-duration: 20s;
+        }
+        .partners_row:nth-of-type(3) & {
+            animation-duration: 30s;
+        }
+    }
+    &_item {
+        width: 120px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 60px;
+        flex-shrink: 0;
+    }
+    &_image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@keyframes row-slide {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(calc(-6 * 240px));
+    }
+    50.01% {
+        transform: translate(calc(6 * 240px));
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+@keyframes row-slide-duplicate {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(calc(-12 * 240px));
+    }
+}

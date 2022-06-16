@@ -1,0 +1,28 @@
+$img: "src/img";
+
+$bg_color: #282326;
+
+$color: #EEE7DF;
+$cRed: #FF6547;
+$cGrey: #75716F;
+$cBlue: #A5F0E8;
+$cYellow: #FFD369;
+$cPurple: #9870FF;
+
+$font-family: 'AlteHaasGrotesk', Helvetica, sans-serif;
+$font-family__monument: 'PPMonumentExtended', Helvetica, sans-serif;
+
+$font-size: 20px;
+$font-size__small: 18px;
+
+$max-width: 1232px;
+$side-indent: 24px;
+$side-indent__tablet: 32px;
+$side-indent__desktop: 62px;
+$indent: 40px;
+
+// easings
+$easeOutCirc: cubic-bezier(.07, .82, .17, 1);
+$easeInOutCirc: cubic-bezier(.78, .13, .15, .86);
+$easeInCirc: cubic-bezier(.6, .04, .98, .34);
+$easing: $easeInOutCirc;

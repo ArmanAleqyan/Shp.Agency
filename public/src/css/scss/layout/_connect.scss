@@ -1,0 +1,178 @@
+.connect {
+    margin: 0 0 40px;
+    @include tablet {
+        margin-bottom: 100px;
+    }
+    @include desktop {
+        margin-bottom: 120px;
+        overflow: hidden;
+    }
+    @include desktop-large {
+        max-width: 1130px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+    }
+
+    &_title {
+        background: url(#{$img}/connect-bg.svg) no-repeat center / auto 100%;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 35px;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        @include desktop {
+            margin-bottom: 45px;
+            padding: 10px 0;
+            font-size: 38px;
+            line-height: 42.5px;
+            position: relative;
+        }
+        @include desktop-large {
+            margin-bottom: 45px;
+            font-size: 50px;
+            line-height: 56px;
+        }
+
+        span {
+            display: block;
+            @include tablet {
+                width: 60%;
+            }
+            @include desktop-large {
+                width: 60%;
+                line-height: 1;
+            }
+            
+            &:first-child {
+            }
+        }
+        span + span {
+            margin-top: 92px;
+            text-align: right;
+            align-self: flex-end;
+            color: $cRed;
+            @include tablet {
+                margin-top: 36px;
+            }
+            @include desktop {
+                margin-top: 50px;
+            }
+        }
+    }
+    &_form {
+        position: relative;
+    }
+    &_form-button {
+        @include button-reset;
+        position: absolute;
+        bottom: 3px;
+        right: 2px;
+        width: 122px;
+        height: 49px;
+        font-size: 18px;
+        transform-origin: right center;
+        color: $color;
+        transition: .2s $easeInCirc color,
+                    .2s $easeInCirc transform;
+        @include desktop {
+            height: 78px;
+            font-size: 24px;
+            width: 180px;
+            bottom: 6px;
+            right: 6px;
+        }
+
+        &:hover,
+        &:focus {
+            color: $bg_color;
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(.95);
+        }
+        &.active {
+            pointer-events: none;
+        }
+    }
+    &_form-button-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(#{$img}/textarea-button.svg) no-repeat center / cover;
+        filter: grayscale(1) brightness(.2);
+        transition: .2s $easeInCirc filter;
+
+        .connect_form-button:hover &,
+        .connect_form-button:active &,
+        .connect_form-button:focus & {
+            filter: grayscale(0) brightness(1);
+        }
+    }
+    &_form-button-text {
+        position: relative;
+        transition: .2s $easing opacity;
+
+        .active & {
+            opacity: 0;
+        }
+    }
+    &_form-check {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 26px;
+        height: 23px;
+        background: url(#{$img}/check.svg) no-repeat center / contain;
+        margin: -13px 0 0 -11px;
+        opacity: 0;
+        transition: .2s $easing opacity;
+
+        .active & {
+            opacity: 1;
+        }
+    }
+    &_textarea {
+        padding-right: 150px;
+        padding-bottom: 50px;
+        overflow: hidden;
+        @include tablet {
+            padding-bottom: 14px;
+            height: 56px;
+        }
+        @include desktop {
+            padding-right: 210px;
+            height: 90px;
+        }
+
+        &.expanded {
+            padding-bottom: 50px;
+            height: 136px;
+            @include desktop {
+                padding-bottom: 90px;
+            }
+        }
+    }
+    &_mask {
+        display: none;
+        @include desktop {
+            display: block;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 100%;
+            top: 100%;
+            transform: translate(-66%, -75%);
+            mix-blend-mode: darken;
+            pointer-events: none;
+            background: radial-gradient($cPurple, transparent 75%);
+            @include desktop {
+                width: 600px;
+                height: 600px;
+            }
+        }
+    }
+}
